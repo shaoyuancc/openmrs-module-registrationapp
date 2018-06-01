@@ -48,13 +48,17 @@
     });
 
     function importMpiPatientWithCcd(patient) {
+        var searchButton = jq('#fingerprint_search_button');
+        toggleFingerprintButtonDisplay(searchButton);
         emr.getFragmentActionWithCallback(
                 "registrationapp", "search/m2SysSearch", "importMpiPatientWithCcd",
                 { nationalFingerprintId: patient.nationalFingerprintPatientIdentifier.identifier },
                 function (successResponse) {
+                    toggleFingerprintButtonDisplay(searchButton);
                     redirectToPatient(successResponse.message);
                 },
                 function (failResponse) {
+                    toggleFingerprintButtonDisplay(searchButton);
                     emr.handleError(failResponse);
                 });
     }
