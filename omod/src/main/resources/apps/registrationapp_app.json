@@ -15,6 +15,114 @@
                 "order": 1,
                 "requiredPrivilege": "App: registrationapp.registerPatient"
             }
-        ]
+        ],
+        "config": {
+            "afterCreatedUrl": "/coreapps/clinicianfacing/patient.page?patientId={{patientId}}",
+            "patientDashboardLink": "registrationapp/registrationSummary.page",
+            "allowRetrospectiveEntry": true,
+            "allowUnknownPatients": false,
+            "registrationEncounter": {
+                "encounterType": "873f968a-73a8-4f9c-ac78-9f4778b751b6",
+                "encounterRole": "ef0445e7-bfe6-4260-a351-09fc835b6bcd"
+            },
+            "sections": [
+                {
+                    "id": "patientIds",
+                    "label": "registrationapp.patient.identifier.label",
+                    "questions": [
+                        {
+                            "legend": "isanteplus.registration.patient.codeST.label",
+                            "id": "codeStLabel",
+                            "fields": [
+                                {
+                                    "type": "patientIdentifier",
+                                    "label": "isanteplus.registration.patient.codeST.label",
+                                    "formFieldName": "Code ST",
+                                    "uuid": "d059f6d0-9e42-4760-8de1-8316b48bc5f1",
+                                    "widget": {
+                                        "providerName": "uicommons",
+                                        "fragmentId": "field/text"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "legend": "isanteplus.registration.patient.codeNational.label",
+                            "id": "codeNationalLabel",
+                            "fields": [
+                                {
+                                    "type": "patientIdentifier",
+                                    "label": "isanteplus.registration.patient.codeNational.label",
+                                    "formFieldName": "Code National",
+                                    "uuid": "9fb4533d-4fd5-4276-875b-2ab41597f5dd",
+                                    "widget": {
+                                        "providerName": "uicommons",
+                                        "fragmentId": "field/text"
+                                    },
+                                    "cssClasses": [
+                                        "required"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "contactInfo",
+                    "label": "registrationapp.patient.contactInfo.label",
+                    "questions": [
+                        {
+                            "legend": "Person.address",
+                            "fields": [
+                                {
+                                    "type": "personAddress",
+                                    "label": "registrationapp.patient.address.question",
+                                    "widget": {
+                                        "providerName": "uicommons",
+                                        "fragmentId": "field/personAddress"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "legend": "registrationapp.patient.phone.label",
+                            "id": "phoneNumberLabel",
+                            "fields": [
+                                {
+                                    "type": "personAttribute",
+                                    "label": "registrationapp.patient.phone.question",
+                                    "formFieldName": "phoneNumber",
+                                    "uuid": "14d4f066-15f5-102d-96e4-000c29c2a5d7",
+                                    "widget": {
+                                        "providerName": "uicommons",
+                                        "fragmentId": "field/text"
+                                    },
+                                    "cssClasses": ["phone"]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "relationships-info",
+                    "label": "registrationapp.person.relationship",
+                    "questions": [
+                        {
+                            "legend": "registrationapp.person.relationship.label",
+                            "header": "registrationapp.person.relationship.question",
+                            "fields": [
+                                {
+                                    "type": "personRelationships",
+                                    "widget": {
+                                        "providerName": "registrationapp",
+                                        "fragmentId": "field/personRelationship"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     }
 ]
