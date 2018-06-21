@@ -86,9 +86,9 @@ public class RegistrationAppActivator extends BaseModuleActivator {
             EmrApiProperties emrApiProperties = Context.getRegisteredComponents(EmrApiProperties.class).iterator().next();
             PatientIdentifierType primaryIdentifierType = emrApiProperties.getPrimaryIdentifierType();
 
-            IdentifierSource sourceForPrimaryType = identifierSourceService.getAutoGenerationOption(primaryIdentifierType).getSource();
+            // IdentifierSource sourceForPrimaryType = identifierSourceService.getAutoGenerationOption(primaryIdentifierType).getSource();
 
-            administrationService.setGlobalProperty(RegistrationCoreConstants.GP_OPENMRS_IDENTIFIER_SOURCE_ID, sourceForPrimaryType.getId().toString());
+            // administrationService.setGlobalProperty(RegistrationCoreConstants.GP_OPENMRS_IDENTIFIER_SOURCE_ID, sourceForPrimaryType.getId().toString());
 
             // Setup for MPI Sedish Demo
 
